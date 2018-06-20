@@ -1,0 +1,27 @@
+<%= form_with(model: crust, local: true) do |form| %>
+  <% if crust.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(crust.errors.count, "error") %> prohibited this crust from being saved:</h2>
+
+      <ul>
+      <% crust.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :typecrust %>
+    <%= form.text_field :typecrust, id: :crust_typecrust %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.number_field :value, id: :crust_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
